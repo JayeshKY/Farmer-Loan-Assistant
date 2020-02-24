@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title> Farmer Loan Assistant </title>
+    <link rel="stylesheet" type="text/css" href="style.css">  
+
+    
+</head>
+    <body>
+
+        <script>
+            function myFun()
+            {
+                var a=document.getElementById("User_Name").value;
+
+                if(a=="")
+                {
+                    document.getElementById("Message").innerHTML="Please enter Username";
+                    return false;
+                }
+
+                var i=document.getElementsByTagName("input");
+                  var e=document.getElementsByName("username")[0].value;
+
+
+    var atindex=e.indexOf('@');
+    var dotindex=e.lastIndexOf('.');
+    if(atindex<1 || dotindex>=e.length-2 || dotindex-atindex<3)
+    {document.getElementById("Message").innerHTML="Please enter Correct Email Format";
+        
+        return false;
+    }
+
+   
+
+    if(i[1].value.length==0)
+    {
+        document.getElementById("Message2").innerHTML="Please enter Password";
+
+       return false;
+    }
+     if(i[1].value.length<5)
+    {
+        document.getElementById("Message2").innerHTML="Password length must be greater than 4";
+
+       return false;
+    }
+     if(i[1].value.length>9)
+    {
+        document.getElementById("Message2").innerHTML="Password length must be less than 10";
+
+       return false;
+    }
+
+              
+
+    return true;
+    
+    }
+
+        </script>
+
+    <div class="login-box">
+    <img src="avatar.png" class="avatar">
+        <h1>Login Here</h1>
+            <form action="validation2.php" method="post" onsubmit="return myFun()">
+
+            <p>Username</p>
+            <input type="text" name="username" id="User_Name"  placeholder="Enter Username">
+            <span id="Message"></span></br>
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Enter Password">
+            <span id="Message2"></span></br>
+
+            <input type="submit" name="submit" value="Login">
+               
+            </form>
+
+            
+        
+        
+        </div>
+    
+    </body>
+</html>
